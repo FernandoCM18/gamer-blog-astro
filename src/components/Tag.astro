@@ -1,0 +1,7 @@
+---
+interface Props {
+  type: 'Reseña' | 'Noticia';
+}
+const { type } = Astro.props;
+---
+<span class="bg-slate-100 text-xs font-semibold rounded-sm px-1">{type}</span>
