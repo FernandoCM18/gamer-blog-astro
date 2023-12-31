@@ -1,0 +1,17 @@
+---
+interface Props {
+  img: string;
+  game: string;
+  qualification: number;
+}
+
+const {img, game, qualification} = Astro.props;
+---
+
+<article class="bg-white shadow-card max-h-16 rounded-xl flex items-center p-3">
+  <img src={img} alt={game} class="w-12 h-12">
+  <div class="p-4">
+    <h3 class="text-xl font-bold">{game}</h3>
+    <p class="text-gray-500 text-sm">{qualification}</p>
+  </div>
+</article>
