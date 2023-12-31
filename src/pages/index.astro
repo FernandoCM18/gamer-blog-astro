@@ -1,5 +1,6 @@
 ---
 import Card from '../components/Card.astro';
+import ListNew from '../components/ListNew.astro';
 import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
@@ -9,16 +10,18 @@ const body = 'Unravel contiene una historia de la vida misma. Desde el inicio po
 const images = [
 	'https://cdn.akamai.steamstatic.com/steam/apps/1716740/capsule_616x353.jpg?t=1700075960',
 	'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/mwiii/MWIII-REVEAL-BENEFITS-006.jpg',
-	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZCGrP0FQ87UWJz2ovjpsiYGWLjMIcGsZNiw&usqp=CAU'
+	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZCGrP0FQ87UWJz2ovjpsiYGWLjMIcGsZNiw&usqp=CAU',
+	'https://i.ytimg.com/vi/9H76s1MaMK4/maxresdefault.jpg',
+	'https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_Fortnite_image1600w.jpg'
 ];
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
-	<main class="flex gap-10">
-		<div class="max-w-min space-y-7">
+	<main class="grid grid-cols-3 gap-10">
+		<div class="space-y-7 col-span-2">
 			<section id="ultimas-reseñas">
 				<Title title='Ultimas reseñas' />
-				<div class="flex space-x-5">
+				<div class="flex gap-5 justify-center">
 					<Review 
 					name='Starfield' 
 					body={body}
@@ -47,45 +50,36 @@ const images = [
 			</section>
 			<section id="ultimas noticias">
 				<Title title='Ultimas noticias' />
-				<div class="flex flex-wrap gap-5">
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[0]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[1]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[2]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[0]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-				</div>
+				<ListNew />
 			</section>
 		</div>
 		<section id="top-ultimas" class="flex-auto">
 			<Title title='Top 5' />
 			<div class="space-y-4">
 				<Card 
+					img={images[2]}
+					game='Gears 5'
+					qualification={9.3}
+				/>
+				<Card 
 					img={images[0]}
 					game='Starfield'
 					qualification={8.5}
+				/>
+				<Card 
+					img={images[3]}
+					game='Unravel'
+					qualification={8.3}
+				/>
+				<Card 
+					img={images[4]}
+					game='Fornite'
+					qualification={8.0}
+				/>
+				<Card 
+					img={images[0]}
+					game='Call of Duty Modern Warfare III de activision para los'
+					qualification={7.9}
 				/>
 			</div>
 		</section>
