@@ -1,27 +1,93 @@
 ---
+import Card from '../components/Card.astro';
+import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
 
 const body = 'Unravel contiene una historia de la vida misma. Desde el inicio podemos observar a una señora de edad avanzada viendo un álbum de fotos mientras teje y poco a poco se va quedando dormida. En ese momento, el hilo que está tejiendo se suelta y cae al suelo, y es ahí cuando aparece Yarny, un muñeco de lana roja que se despierta en el suelo y comienza a explorar la casa.'
-const img = 'data:image/jpeg;base64,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'
+const images = [
+	'https://cdn.akamai.steamstatic.com/steam/apps/1716740/capsule_616x353.jpg?t=1700075960',
+	'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/mwiii/MWIII-REVEAL-BENEFITS-006.jpg',
+	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZCGrP0FQ87UWJz2ovjpsiYGWLjMIcGsZNiw&usqp=CAU'
+];
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
-	<main class="space-y-8">
-		<section>
-			<Title title='Ultimas reseñas' />
-			<Review 
-				name='Starfield' 
-				body={body}
-				img={img}
-				platforms={['PC', 'PS5', 'XBOX']}
-				qualification={8.5}
-				createAt='Hace 2 horas'
-			/>
-		</section>
-		<section>
-			<Title title='Ultimas noticias' />
+	<main class="flex gap-10">
+		<div class="max-w-min space-y-7">
+			<section id="ultimas-reseñas">
+				<Title title='Ultimas reseñas' />
+				<div class="flex space-x-5">
+					<Review 
+					name='Starfield' 
+					body={body}
+					img={images[0]}
+					platforms={['PC', 'PS5', 'XBOX']}
+					qualification={8.5}
+					createAt='Hace 2 horas'
+				/>
+				<Review 
+					name='Starfield' 
+					body={body}
+					img={images[1]}
+					platforms={['PC', 'PS5', 'XBOX']}
+					qualification={8.5}
+					createAt='Hace 2 horas'
+				/>
+				<Review 
+					name='Starfield' 
+					body={body}
+					img={images[2]}
+					platforms={['PC', 'PS5', 'XBOX']}
+					qualification={8.5}
+					createAt='Hace 2 horas'
+				/>
+				</div>
+			</section>
+			<section id="ultimas noticias">
+				<Title title='Ultimas noticias' />
+				<div class="flex flex-wrap gap-5">
+					<New 
+						title='Starfield'
+						body={body}
+						img={images[0]}
+						date='12/12/23'
+						auhtor='Jorge Luis'
+					/>
+					<New 
+						title='Starfield'
+						body={body}
+						img={images[1]}
+						date='12/12/23'
+						auhtor='Jorge Luis'
+					/>
+					<New 
+						title='Starfield'
+						body={body}
+						img={images[2]}
+						date='12/12/23'
+						auhtor='Jorge Luis'
+					/>
+					<New 
+						title='Starfield'
+						body={body}
+						img={images[0]}
+						date='12/12/23'
+						auhtor='Jorge Luis'
+					/>
+				</div>
+			</section>
+		</div>
+		<section id="top-ultimas" class="flex-auto">
+			<Title title='Top 5' />
+			<div class="space-y-4">
+				<Card 
+					img={images[0]}
+					game='Starfield'
+					qualification={8.5}
+				/>
+			</div>
 		</section>
 	</main>
 </Layout>
