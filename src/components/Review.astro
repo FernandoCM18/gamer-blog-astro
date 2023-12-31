@@ -14,10 +14,10 @@ interface Props {
 const { body, createAt, img, name, platforms, qualification } = Astro.props;
 ---
 
-<article class="bg-white rounded-xl shadow-xl w-[280px] max-h-[334px]">
+<article class="bg-white rounded-xl w-[280px] max-h-[334px] shadow-card">
 	<!-- bg-image, tag, name, platforms and qualification-->
 	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ img })`}>
-		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/05">
+		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/10">
 			<div class="space-y-0.5">
 				<Tag type="Reseña" />
 				<h2 class="text-slate-100 font-bold">{ name }</h2>
