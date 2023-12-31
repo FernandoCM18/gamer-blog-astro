@@ -16,8 +16,8 @@ const {title, date, auhtor, body, img } = Astro.props;
   <img src={img} alt={img} class="object-cover rounded-xl" width="137" height="157">
   <div>
     <Tag type="Noticia"/>
-    <h2 class="font-bold line-clamp-2">{title}</h2>
+    <h2 class="text-lg font-bold line-clamp-2">{title}</h2>
     <p class="text-xs text-slate-400 mb-3">Publicado: {date} - por {auhtor}</p>
-    <p class="line-clamp-3 text-sm">{body}</p>
+    <p class="line-clamp-3">{body}</p>
   </div>
 </article>
