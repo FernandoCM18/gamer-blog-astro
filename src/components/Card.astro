@@ -8,10 +8,10 @@ interface Props {
 const {img, game, qualification} = Astro.props;
 ---
 
-<article class="bg-white shadow-card max-h-16 rounded-xl flex items-center p-3">
-  <img src={img} alt={game} class="w-12 h-12">
-  <div class="p-4">
-    <h3 class="text-xl font-bold">{game}</h3>
-    <p class="text-gray-500 text-sm">{qualification}</p>
+<article class="bg-white shadow-card max-h-16 rounded-xl flex items-center justify-between p-3">
+  <div class="flex items-center space-x-3">
+    <img src={img} alt={game} class="w-12 h-12 rounded-xl object-cover">
+    <h2 class="text-lg font-semibold">{game}</h2>
   </div>
+  <p class="text-3xl font-bold">{qualification}</p>
 </article>
