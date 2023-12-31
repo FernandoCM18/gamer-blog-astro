@@ -2,7 +2,11 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			boxShadow: {
+				'card': '0px 4px 20px 0px rgba(0, 0, 0, 0.10)'
+			}
+		},
 	},
 	plugins: [
 		require('@tailwindcss/forms'),
