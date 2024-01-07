@@ -2,7 +2,7 @@
 interface Props {
   img: string;
   game: string;
-  qualification: number;
+  qualification?: number;
 }
 
 const {img, game, qualification} = Astro.props;
@@ -13,5 +13,5 @@ const {img, game, qualification} = Astro.props;
     <img src={img} alt={game} class="w-12 h-12 rounded-xl object-cover">
     <h2 class="text-lg font-semibold line-clamp-2 text-pretty">{game}</h2>
   </div>
-  <p class="text-3xl font-bold">{qualification.toFixed(1)}</p>
+  <p class="text-3xl font-bold">{qualification?.toFixed(1)}</p>
 </article>
