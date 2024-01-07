@@ -14,7 +14,7 @@ interface Props {
 const { body, createAt, img, name, platforms, qualification } = Astro.props;
 ---
 
-<article class="bg-white rounded-xl w-[280px] max-h-[334px] shadow-card">
+<article class="bg-white rounded-xl max-h-[334px] shadow-card">
 	<!-- bg-image, tag, name, platforms and qualification-->
 	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ img })`}>
 		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/10">
