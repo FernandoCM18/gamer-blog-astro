@@ -3,35 +3,35 @@ import Platforms from './Platforms.astro';
 import Tag from './Tag.astro';
 
 interface Props {
-	body: string;
-	createAt: string;
-	img: string;
-	name: string;
-	platforms: string[];
-	qualification: number;
+	gameReview: string;
+	createdAt: string;
+	gameImage?: string;
+	gameName: string;
+	gamePlatform: string[];
+	gameRating: number;
 }
 
-const { body, createAt, img, name, platforms, qualification } = Astro.props;
+const { gameReview, createdAt, gameImage, gameName, gamePlatform, gameRating } = Astro.props;
 ---
 
 <article class="bg-white rounded-xl w-[280px] max-h-[334px] shadow-card">
-	<!-- bg-image, tag, name, platforms and qualification-->
-	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ img })`}>
+	<!-- bg-image, tag, gameName, gamePlatform and gameRating-->
+	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ gameImage })`}>
 		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/10">
 			<div class="space-y-0.5">
 				<Tag type="Reseña" />
-				<h2 class="text-slate-100 font-bold">{ name }</h2>
-				<Platforms platforms={platforms} />
+				<h2 class="text-slate-100 font-bold line-clamp-1">{ gameName }</h2>
+				<Platforms platforms={gamePlatform} />
 			</div>
 			<div>
-				<p class="text-slate-100 text-3xl font-bold">{qualification}</p>
+				<p class="text-slate-100 text-3xl font-bold">{gameRating}</p>
 			</div>
 		</div>
 	</div>
-	<!-- body, createdAt -->
+	<!-- gameReview, createdAt -->
 	<div class="p-3 space-y-3 text-sm">
-		<p class="line-clamp-5">{body}</p>
-		<p class="text-slate-500">{createAt}</p>
+		<p class="line-clamp-5">{gameReview}</p>
+		<p class="text-slate-500">{createdAt}</p>
 	</div>
 </article>
 
