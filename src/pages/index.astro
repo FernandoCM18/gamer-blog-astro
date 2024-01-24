@@ -4,13 +4,8 @@ import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
+import { topGames, lasteThreegames, lasteFourNews } from '../../data/data';
 
-const body = 'Unravel contiene una historia de la vida misma. Desde el inicio podemos observar a una señora de edad avanzada viendo un álbum de fotos mientras teje y poco a poco se va quedando dormida. En ese momento, el hilo que está tejiendo se suelta y cae al suelo, y es ahí cuando aparece Yarny, un muñeco de lana roja que se despierta en el suelo y comienza a explorar la casa.'
-const images = [
-	'https://cdn.akamai.steamstatic.com/steam/apps/1716740/capsule_616x353.jpg?t=1700075960',
-	'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/mwiii/MWIII-REVEAL-BENEFITS-006.jpg',
-	'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZCGrP0FQ87UWJz2ovjpsiYGWLjMIcGsZNiw&usqp=CAU'
-];
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
@@ -19,74 +14,49 @@ const images = [
 			<section id="ultimas-reseñas">
 				<Title title='Ultimas reseñas' />
 				<div class="flex space-x-5">
-					<Review 
-					name='Starfield' 
-					body={body}
-					img={images[0]}
-					platforms={['PC', 'PS5', 'XBOX']}
-					qualification={8.5}
-					createAt='Hace 2 horas'
-				/>
-				<Review 
-					name='Starfield' 
-					body={body}
-					img={images[1]}
-					platforms={['PC', 'PS5', 'XBOX']}
-					qualification={8.5}
-					createAt='Hace 2 horas'
-				/>
-				<Review 
-					name='Starfield' 
-					body={body}
-					img={images[2]}
-					platforms={['PC', 'PS5', 'XBOX']}
-					qualification={8.5}
-					createAt='Hace 2 horas'
-				/>
+					{
+						lasteThreegames && lasteThreegames.map((game) => (
+							<Review
+								gameName={game.gameName}
+								gameRating={game.gameRating}
+								gameReview={game.gameReview}
+								createdAt={game.createdAt}
+								gamePlatform={game.gamePlatform}
+								gameImage={game.gameImage}
+							/>
+						))
+					}
 				</div>
 			</section>
 			<section id="ultimas noticias">
 				<Title title='Ultimas noticias' />
 				<div class="flex flex-wrap gap-5">
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[0]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[1]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[2]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
-					<New 
-						title='Starfield'
-						body={body}
-						img={images[0]}
-						date='12/12/23'
-						auhtor='Jorge Luis'
-					/>
+					{
+						lasteFourNews && lasteFourNews.map((news) => (
+							<New
+								newTitle={news.newTitle}
+								newDescription={news.newDescription}
+								newImage={news.newImage || ''}
+								author={news.author}
+								createdAt={news.createdAt}
+							/>
+						))
+					}
 				</div>
 			</section>
 		</div>
 		<section id="top-ultimas" class="flex-auto">
 			<Title title='Top 5' />
 			<div class="space-y-4">
-				<Card 
-					img={images[0]}
-					game='Starfield'
-					qualification={8.5}
-				/>
+				{
+					topGames && topGames.map((game) => (
+						<Card
+							gameName={game.gameName}
+							gameRating={game.gameRating}
+							gameImage={game.gameImage}
+						/>
+					))
+				}
 			</div>
 		</section>
 	</main>
