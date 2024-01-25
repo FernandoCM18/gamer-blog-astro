@@ -3,13 +3,14 @@ import FacebookIcon from "../../assets/icons/facebook-icon.astro";
 import InstagramIcon from "../../assets/icons/instagram-icon.astro";
 import SearchIcon from "../../assets/icons/search-icon.astro";
 import YoutubeIcon from "../../assets/icons/youtube-icon.astro";
+import MenuBars from "../../assets/icons/menu-bars.astro";
 ---
 
 
-<header class="flex justify-between px-10 py-8 items-center">
+<header class="flex justify-between px-5 lg:px-10 py-8 items-center">
   <div class="flex items-center w-full space-x-20">
     <h1 class="text-2xl font-bold">GamerBlog</h1>
-    <form class="w-[330px]">   
+    <form class="invisible lg:visible w-[330px]">   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
       <div class="relative">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -19,9 +20,12 @@ import YoutubeIcon from "../../assets/icons/youtube-icon.astro";
       </div>
     </form>
   </div>
+  <div class="lg:invisible">
+    <MenuBars />
+  </div>
 
   
-  <nav>
+  <nav class="invisible lg:visible">
     <ul class="flex space-x-7 items-center">
       <li><a href="/guias">Guias</a></li>
       <li><a href="/noticias">Noticias</a></li>

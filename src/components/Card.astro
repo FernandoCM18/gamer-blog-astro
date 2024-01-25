@@ -16,4 +16,5 @@ const {gameImage, gameName, gameRating} = Astro.props;
     <h3 class="line-clamp-2">{gameName}</h3>
     <p class="text-xl font-bold">{(gameRating !== undefined && gameRating < 10) ? gameRating.toFixed(1) : gameRating}</p>
   </div>
+  <p class="text-3xl font-bold">{qualification?.toFixed(1)}</p>
 </article>
