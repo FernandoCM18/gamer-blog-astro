@@ -1,79 +1,80 @@
 ---
 import Card from '../components/Card.astro';
 import Footer from '../components/Footer.astro';
-import ListNew from '../components/ListNew.astro';
 import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
 import { topGames, lastThreegames, lastFourNews, lastFiveGuides } from '../../data/data';
-
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
-	<main class="grid lg:grid-cols-3 lg:gap-10">
-		<div class="space-y-7 lg:col-span-2">
+	<main class="grid grid-flow-col gap-10">
+		<div class="space-y-10">
 			<section id="ultimas-reseñas">
-				<Title title='Ultimas reseñas' />
+				<Title title="Ultimas reseñas" />
 				<div class="flex space-x-5">
 					{
-						lastThreegames && lastThreegames.map((game) => (
-							<Review
-								gameName={game.gameName}
-								gameRating={game.gameRating}
-								gameReview={game.gameReview}
-								createdAt={game.createdAt}
-								gamePlatform={game.gamePlatform}
-								gameImage={game.gameImage}
-							/>
-						))
+						lastThreegames &&
+							lastThreegames.map((game) => (
+								<Review
+									gameName={game.gameName}
+									gameRating={game.gameRating}
+									gameReview={game.gameReview}
+									createdAt={game.createdAt}
+									gamePlatform={game.gamePlatform}
+									gameImage={game.gameImage}
+								/>
+							))
 					}
 				</div>
 			</section>
 			<section id="ultimas noticias">
-				<Title title='Ultimas noticias' />
+				<Title title="Ultimas noticias" />
 				<div class="flex flex-wrap gap-5">
 					{
-						lastFourNews && lastFourNews.map((news) => (
-							<New
-								newTitle={news.newTitle}
-								newDescription={news.newDescription}
-								newImage={news.newImage || ''}
-								author={news.author}
-								createdAt={news.createdAt}
-							/>
-						))
+						lastFourNews &&
+							lastFourNews.map((news) => (
+								<New
+									newTitle={news.newTitle}
+									newDescription={news.newDescription}
+									newImage={news.newImage || ''}
+									author={news.author}
+									createdAt={news.createdAt}
+								/>
+							))
 					}
 				</div>
 			</section>
 		</div>
-		<section class="flex-auto">
-			<Title title='Top 5' />
-			<div class="space-y-4">
-				{
-					topGames && topGames.map((game) => (
-						<Card
-							gameName={game.gameName}
-							gameRating={game.gameRating}
-							gameImage={game.gameImage}
-						/>
-					))
-				}
-			</div>
-			<div class="mt-5">
-				<Title title='Ultimas guias' />
+		<div>
+			<section class="">
+				<Title title="Top 5" />
 				<div class="space-y-4">
-				{
-					lastFiveGuides && lastFiveGuides.map((guide) => (
-						<Card
-							gameName={guide.gameName}
-							gameImage={guide.gameImage}
-						/>
-					))
-				}
+					{
+						topGames &&
+							topGames.map((game) => (
+								<Card
+									gameName={game.gameName}
+									gameRating={game.gameRating}
+									gameImage={game.gameImage}
+								/>
+							))
+					}
 				</div>
-			</div>
-		</section>
+			</section>
+			<section class="mt-5">
+				<Title title="Ultimas guias" />
+				<div class="space-y-4">
+					{
+						lastFiveGuides &&
+							lastFiveGuides.map((guide) => (
+								<Card gameName={guide.gameName} gameImage={guide.gameImage} />
+							))
+					}
+				</div>
+			</section>
+		</div>
 	</main>
-	<Footer  />
+	<Footer />
 </Layout>
