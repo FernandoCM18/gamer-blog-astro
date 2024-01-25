@@ -4,7 +4,7 @@ import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
-import { topGames, lasteThreegames, lasteFourNews } from '../../data/data';
+import { topGames, lastThreegames, lastFourNews, lastFiveGuides } from '../../data/data';
 
 ---
 
@@ -15,7 +15,7 @@ import { topGames, lasteThreegames, lasteFourNews } from '../../data/data';
 				<Title title='Ultimas reseñas' />
 				<div class="flex space-x-5">
 					{
-						lasteThreegames && lasteThreegames.map((game) => (
+						lastThreegames && lastThreegames.map((game) => (
 							<Review
 								gameName={game.gameName}
 								gameRating={game.gameRating}
@@ -32,7 +32,7 @@ import { topGames, lasteThreegames, lasteFourNews } from '../../data/data';
 				<Title title='Ultimas noticias' />
 				<div class="flex flex-wrap gap-5">
 					{
-						lasteFourNews && lasteFourNews.map((news) => (
+						lastFourNews && lastFourNews.map((news) => (
 							<New
 								newTitle={news.newTitle}
 								newDescription={news.newDescription}
@@ -57,6 +57,19 @@ import { topGames, lasteThreegames, lasteFourNews } from '../../data/data';
 						/>
 					))
 				}
+			</div>
+			<div class="mt-5">
+				<Title title='Ultimas guias' />
+				<div class="space-y-4">
+				{
+					lastFiveGuides && lastFiveGuides.map((guide) => (
+						<Card
+							gameName={guide.gameName}
+							gameImage={guide.gameImage}
+						/>
+					))
+				}
+				</div>
 			</div>
 		</section>
 	</main>
