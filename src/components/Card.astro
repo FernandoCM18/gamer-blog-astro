@@ -2,7 +2,7 @@
 interface Props {
   gameImage?: string;
   gameName: string;
-  gameRating: number;
+  gameRating?: number;
 }
 
 const {gameImage, gameName, gameRating} = Astro.props;
@@ -13,7 +13,7 @@ const {gameImage, gameName, gameRating} = Astro.props;
     <img src={gameImage} alt={gameName} class="rounded-md w-full object-cover h-full">
   </div>
   <div class="flex items-center justify-between w-full space-x-3">
-    <h3 class="font-bold line-clamp-2">{gameName}</h3>
-    <p class="font-bold">{gameRating}</p>
+    <h3 class="line-clamp-2">{gameName}</h3>
+    <p class="text-xl font-bold">{(gameRating !== undefined && gameRating < 10) ? gameRating.toFixed(1) : gameRating}</p>
   </div>
 </article>
