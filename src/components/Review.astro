@@ -12,9 +12,14 @@ interface Props {
 }
 
 const { gameReview, createdAt, gameImage, gameName, gamePlatform, gameRating } = Astro.props;
+const date = new Date(String(createdAt)).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+});
 ---
 
-<article class="bg-white rounded-xl w-[280px] max-h-[334px] shadow-card">
+<article class="bg-white dark:bg-slate-800 rounded-xl w-[280px] max-h-[334px] shadow-card">
 	<!-- bg-image, tag, gameName, gamePlatform and gameRating-->
 	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ gameImage })`}>
 		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/10">
@@ -31,7 +36,7 @@ const { gameReview, createdAt, gameImage, gameName, gamePlatform, gameRating } =
 	<!-- gameReview, createdAt -->
 	<div class="p-3 space-y-3 text-sm">
 		<p class="line-clamp-5 h-20">{gameReview}</p>
-		<p class="text-slate-500">{createdAt}</p>
+		<p class="text-slate-500">{date}</p>
 	</div>
 </article>
 
