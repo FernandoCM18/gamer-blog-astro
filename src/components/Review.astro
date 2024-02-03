@@ -29,7 +29,7 @@ const date = new Date(String(createdAt)).toLocaleDateString('es-ES', {
 				<Platforms platforms={gamePlatform} />
 			</div>
 			<div>
-				<p class="text-slate-100 text-3xl font-bold">{gameRating}</p>
+				<p class="text-slate-100 text-3xl font-bold">{gameRating.toFixed(1)}</p>
 			</div>
 		</div>
 	</div>
