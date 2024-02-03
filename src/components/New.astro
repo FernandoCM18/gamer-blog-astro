@@ -9,15 +9,21 @@ interface Props {
   newImage: string;
 }
 const {newTitle, createdAt, author, newDescription, newImage } = Astro.props;
+const date = new Date(String(createdAt)).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+});
 ---
 
-<article 
-  class="bg-white rounded-xl flex p-5 space-x-5 max-w-[430px] shadow-card">
-  <img src={newImage} alt={newTitle} class="object-cover rounded-xl" width="137" height="157">
+<article class="bg-white dark:bg-slate-800 rounded-xl flex p-5 space-x-5 max-w-[430px] max-h-fit shadow-card">
+  <div class="rounded-xl" style="width: 137px;">
+    <img src={newImage} alt={newTitle} class="object-cover w-full h-full">
+  </div>
   <div>
     <Tag type="Noticia"/>
     <h2 class="font-bold line-clamp-2">{newTitle}</h2>
-    <p class="text-xs text-slate-400 mb-3">Publicado: {createdAt} - por {author}</p>
+    <p class="text-xs text-slate-400 mb-3">Publicado: {date} - por {author}</p>
     <p class="line-clamp-3 text-sm">{newDescription}</p>
   </div>
 </article>
