@@ -593,6 +593,6 @@ const GUIDES: Guide[] = [
 ]
 
 export const topGames = REVIEWS.sort((a, b) => b.gameRating - a.gameRating).slice(0, 5);
-export const lastFourNews = NEWS.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 4);
+export const lastSixNews = NEWS.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 6);
 export const lastThreegames = REVIEWS.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 3);
 export const lastFiveGuides = GUIDES.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 5);

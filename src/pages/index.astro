@@ -5,7 +5,7 @@ import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
-import { topGames, lastThreegames, lastFourNews, lastFiveGuides } from '../../data/data';
+import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../data/data';
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
@@ -33,8 +33,8 @@ import { topGames, lastThreegames, lastFourNews, lastFiveGuides } from '../../da
 				<Title title="Ultimas noticias" />
 				<div class="flex flex-wrap gap-5">
 					{
-						lastFourNews &&
-							lastFourNews.map((news) => (
+						lastSixNews &&
+							lastSixNews.map((news) => (
 								<New
 									newTitle={news.newTitle}
 									newDescription={news.newDescription}
