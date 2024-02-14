@@ -19,7 +19,7 @@ const date = new Date(String(createdAt)).toLocaleDateString('es-ES', {
 });
 ---
 
-<article class="bg-white dark:bg-slate-800 rounded-xl w-[280px] max-h-[334px] shadow-card">
+<article class="bg-white dark:bg-slate-800 rounded-xl min-w-[280px] max-w-[280px] max-h-[334px] shadow-card">
 	<!-- bg-image, tag, gameName, gamePlatform and gameRating-->
 	<div class="imgBg rounded-t-xl flex flex-col justify-end" style={`background-image: url(${ gameImage })`}>
 		<div class="px-3 py-1 flex justify-between items-center backdrop-blur-sm bg-black/10">
