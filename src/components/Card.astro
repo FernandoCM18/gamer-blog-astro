@@ -8,7 +8,7 @@ interface Props {
 const {gameImage, gameName, gameRating} = Astro.props;
 ---
 
-<article class="bg-white dark:bg-slate-800 shadow-card w-[280px] max-h-16 rounded-xl flex items-center p-3 space-x-3">
+<article class="bg-white dark:bg-slate-800 shadow-card md:w-[280px] max-h-16 rounded-xl flex items-center p-3 space-x-3">
   <div class="w-14 h-12">
     <img src={gameImage} alt={gameName} class="rounded-md w-full object-cover h-full">
   </div>
