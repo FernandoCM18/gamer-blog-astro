@@ -1,6 +1,5 @@
 ---
 import Card from '../components/Card.astro';
-import Footer from '../components/Footer.astro';
 import New from '../components/New.astro';
 import Review from '../components/Review.astro';
 import Title from '../components/Title.astro';
@@ -9,11 +8,11 @@ import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../dat
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
-	<main class="grid grid-flow-col gap-10">
-		<div class="space-y-10">
-			<section id="ultimas-reseñas">
+	<main class="grid lg:grid-flow-col gap-10">
+		<div class="space-y-10 md:w-screen lg:w-fit">
+			<section id="ultimas-reseñas" class="max-w-sm md:max-w-fit lg:max-w-full">
 				<Title title="Ultimas reseñas" />
-				<div class="flex space-x-5">
+				<div class="overflow-x-scroll flex space-x-5 lg:justify-center w-sm md:pr-12 lg:pr-0">
 					{
 						lastThreegames &&
 							lastThreegames.map((game) => (
@@ -31,7 +30,7 @@ import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../dat
 			</section>
 			<section id="ultimas noticias">
 				<Title title="Ultimas noticias" />
-				<div class="flex flex-wrap gap-5">
+				<div class="flex flex-wrap gap-5 lg:justify-center">
 					{
 						lastSixNews &&
 							lastSixNews.map((news) => (
@@ -47,7 +46,7 @@ import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../dat
 				</div>
 			</section>
 		</div>
-		<div class="space-y-10">
+		<div class="space-y-10 lg:block md:flex md:justify-center md:gap-20 md:space-y-0">
 			<section class="">
 				<Title title="Top 5" />
 				<div class="space-y-4">
@@ -75,6 +74,6 @@ import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../dat
 				</div>
 			</section>
 		</div>
+		</div>
 	</main>
-	<Footer />
 </Layout>
