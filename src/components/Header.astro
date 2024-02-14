@@ -3,15 +3,14 @@ import FacebookIcon from "../../assets/icons/facebook-icon.astro";
 import InstagramIcon from "../../assets/icons/instagram-icon.astro";
 import SearchIcon from "../../assets/icons/search-icon.astro";
 import YoutubeIcon from "../../assets/icons/youtube-icon.astro";
-import MenuBars from "../../assets/icons/menu-bars.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import Select from "./Select.astro";
 ---
-
 
 <header class="flex justify-between px-5 lg:px-10 py-8 items-center">
   <div class="flex items-center w-full space-x-20">
     <h1 class="text-2xl font-bold">GamerBlog</h1>
-    <form class="invisible lg:visible w-[330px]">   
+    <form class="hidden lg:block lg:w-[330px]">   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
       <div class="relative">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -21,13 +20,18 @@ import ThemeToggle from "./ThemeToggle.astro";
       </div>
     </form>
   </div>
-  <div class="lg:invisible">
-    <MenuBars />
+  <div class="lg:hidden">
+    <button id="menu-bars">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+      </svg>      
+    </button>
   </div>
 
   
-  <nav class="invisible lg:visible">
-    <ul class="flex space-x-7 items-center">
+  
+  <nav class="hidden lg:block">
+    <ul class="lg:flex space-x-7 lg:space-x-7 items-center">
       <li><a href="/guias">Guias</a></li>
       <li><a href="/noticias">Noticias</a></li>
       <li><a href="/reseñas">Reseñas</a></li>
@@ -49,9 +53,55 @@ import ThemeToggle from "./ThemeToggle.astro";
           </a>
         </li>
       </ul>
-      <li>
+      <li class="hidden lg:block">
         <ThemeToggle />
       </li>
     </ul>
   </nav>
+
+  <nav id="menu-links" class="dark:bg-slate-800 absolute top-24 right-5 rounded-xl shadow-xl invisible lg:hidden p-5 z-10">
+    <button class="absolute right-5" id="close-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+      <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <ul class="divide-y dark:divide-slate-700 border-slate-100">
+      <li class="py-3"><a href="/guias">Guias</a></li>
+      <li class="py-3"><a href="/noticias">Noticias</a></li>
+      <li class="py-3"><a href="/reseñas">Reseñas</a></li>
+      <li class="py-3">
+        <ul class="flex space-x-6 items-center justify-center">
+          <li>
+            <FacebookIcon />
+          </li>
+          <li>
+            <InstagramIcon />
+          </li>
+          <li>
+            <YoutubeIcon />
+          </li>
+        </ul>
+      </li>
+      <li class="flex gap-3 items-center py-3">
+        <label>Cambiar tema:</label>
+        <Select />
+      </li>
+    </ul>
+  </nav>
 </header>
+
+<script>
+  const closeButton = document.getElementById('close-button');
+  const menuBars = document.getElementById('menu-bars');
+  const menuLinks = document.getElementById('menu-links');
+
+  menuBars?.addEventListener('click', () => {
+    menuLinks?.classList.remove('invisible');
+    menuLinks?.classList.add('visible');
+  });
+
+  closeButton?.addEventListener('click', () => {
+    menuLinks?.classList.add('invisible');
+    menuLinks?.classList.remove('visible');
+  });
+</script>
