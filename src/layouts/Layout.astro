@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 interface Props {
 	title: string;
@@ -9,7 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="lg:max-w-[1280px]">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -26,6 +27,7 @@ const { title, description } = Astro.props;
 		<div class="px-5 lg:px-10">
 			<slot />
 		</div>
+        <Footer />
 	</body>
 </html>
 
@@ -33,7 +35,6 @@ const { title, description } = Astro.props;
 	:global(html) {
 		font-family: 'Poppins', sans-serif;
 		margin: 0 auto;
-        width: 1280px;
 	}
 </style>
 <script>
