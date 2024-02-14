@@ -1,0 +1,23 @@
+<select id="select-theme" class="form-select w-full py-2 px-4 bg-slate-100 dark:bg-slate-700 rounded-xl border-none">
+  <option value="light">Claro</option>
+  <option value="dark">Oscuro</option>
+</select>
+
+
+<script type="module">
+  const currentTheme = localStorage.getItem('theme');
+  const selectTheme = document.getElementById('select-theme');
+  selectTheme.value = currentTheme;
+  selectTheme.addEventListener('change', (e) => {
+    const theme = e.target.value;
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+
+</script>
