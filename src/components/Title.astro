@@ -1,11 +1,12 @@
 ---
 interface Props {
   title: string;
+  className?: string; 
 }
 
-const {title} = Astro.props;
+const {title, className} = Astro.props;
 ---
 
-<h2 class="text-3xl font-bold mb-3">
+<h2 class={`${className} text-3xl font-bold mb-3`}>
   {title}
 </h2>
