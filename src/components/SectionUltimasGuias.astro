@@ -1,0 +1,17 @@
+---
+import Card from "./Card.astro";
+import Title from "./Title.astro";
+import { lastFiveGuides } from "../../data/data";
+---
+
+<section>
+  <Title title="Ultimas guias" />
+  <div class="space-y-4">
+    {
+      lastFiveGuides &&
+        lastFiveGuides.map((guide) => (
+          <Card gameName={guide.gameName} gameImage={guide.gameImage} />
+        ))
+    }
+  </div>
+</section>
