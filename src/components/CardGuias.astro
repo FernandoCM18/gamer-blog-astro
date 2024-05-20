@@ -2,8 +2,15 @@
 import Platforms from '../components/Platforms.astro';
 import {GUIDES} from '../../data/data';
 import Trofeo from '../../assets/icons/trofeo.astro';
+interface Props {
+  gameImage: string;
+  gameName: string;
+  achievements: number;
+  gamePlatform: string[];
 
-const {gameImage, gameName, achievements, gamePlatform} = GUIDES[2];
+}
+
+const {gameImage, gameName, gamePlatform, achievements} = Astro.props;
 
 ---
 
