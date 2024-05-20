@@ -2,10 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import Segment from '../components/Segment.astro';
+import CardGuias from '../components/CardGuias.astro';
 ---
 <Layout title='Guias' description='Guias de videojuegos'>
-  <Title title='Guias' className='text-center'/>
-  <div class="flex justify-center">
-    <Segment />
-  </div>
+    <Title title='Guias' className='text-center'/>
+    <div class="mx-auto text-center">
+      <Segment />
+    </div>
+    <div id="display"></div>
+    <CardGuias />
+  
 </Layout>
