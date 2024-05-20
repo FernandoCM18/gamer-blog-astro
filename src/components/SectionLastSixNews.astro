@@ -1,0 +1,24 @@
+---
+import New from './New.astro';
+import Title from './Title.astro';
+import { lastSixNews } from '../../data/data';
+---
+
+
+<section id="ultimas noticias">
+	<Title title="Ultimas noticias" />
+	<div class="grid sm:grid-cols-2 gap-5">
+		{
+			lastSixNews &&
+				lastSixNews.map((news) => (
+					<New
+						newTitle={news.newTitle}
+						newDescription={news.newDescription}
+						newImage={news.newImage || ""}
+						author={news.author}
+						createdAt={news.createdAt}
+					/>
+				))
+		}
+	</div>
+</section>
