@@ -16,14 +16,14 @@ const date = new Date(String(createdAt)).toLocaleDateString('es-ES', {
 });
 ---
 
-<article class="bg-white dark:bg-slate-800 rounded-xl grid grid-flow-col p-5 space-x-5 max-w-sm lg:max-w-[430px] max-h-fit shadow-card">
+<article class="bg-white dark:bg-slate-800 rounded-xl grid grid-flow-col p-5 space-x-5 w-full max-h-fit shadow-card">
   <div class="w-[140px] h-[160px]">
     <img src={newImage} alt={newTitle} class="object-cover rounded-xl w-full h-full">
   </div>
   <div>
     <Tag type="Noticia"/>
-    <h2 class="font-bold line-clamp-2">{newTitle}</h2>
-    <p class="text-xs text-slate-400 mb-3 line-clamp-1">{date} - {author}</p>
-    <p class="line-clamp-3 text-sm">{newDescription}</p>
+    <h2 class="font-bold line-clamp-2 break-all">{newTitle}</h2>
+    <p class="text-xs text-slate-400 mb-3 line-clamp-1 break-all">{date} - {author}</p>
+    <p class="line-clamp-3 text-sm break-all">{newDescription}</p>
   </div>
 </article>
