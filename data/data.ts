@@ -378,7 +378,7 @@ const NEWS: New[] = [
   },
 ];
 
-const GUIDES: Guide[] = [
+export const GUIDES: Guide[] = [
   {
     gameName: 'The Witcher 3: Wild Hunt',
     gamePlatform: ['PlayStation', 'Xbox', 'PC', 'Nintendo Switch'],
@@ -496,11 +496,11 @@ const GUIDES: Guide[] = [
   },
   {
     gameName: 'Raspberry Raiders',
-    gamePlatform: ['Nintendo Switch'],
+    gamePlatform: ['Nintendo Switch', 'PC', 'PlayStation', 'Xbox'],
     createdAt: '2023-06-14T00:00:00.000Z',
     updatedAt: '2023-12-31T00:00:00.000Z',
     achievements: 100,
-    gameImage: 'https://th.bing.com/th/id/OIG4.VkguFlJTzIni1eEwjy0g?pid=ImgGn',
+    gameImage: 'https://static.www.nfl.com/image/upload/t_editorial_landscape_mobile/f_auto/league/hzd8vaxf1k4rfoi3uu4r.jpg',
     body: `
     # Guía para completar 'Raspberry Raiders'
     
