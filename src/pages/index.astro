@@ -1,79 +1,23 @@
 ---
-import Card from '../components/Card.astro';
-import New from '../components/New.astro';
-import Review from '../components/Review.astro';
-import Title from '../components/Title.astro';
 import Layout from '../layouts/Layout.astro';
-import { topGames, lastThreegames, lastSixNews, lastFiveGuides } from '../../data/data';
+import SectionLastThreeGames from '../components/SectionLastThreeGames.astro';
+import SectionLastSixNews from '../components/SectionLastSixNews.astro';
+import SectionTop5 from '../components/SectionTop5.astro';
+import SectionUltimasGuias from '../components/SectionUltimasGuias.astro';
 ---
 
 <Layout title="GamerBlog" description="Blog sobre videojuegos">
-	<main class="grid lg:grid-flow-col gap-10">
-		<div class="space-y-10 md:w-screen lg:w-fit">
-			<section id="ultimas-reseñas" class="max-w-sm md:max-w-fit lg:max-w-full">
-				<Title title="Ultimas reseñas" />
-				<div class="overflow-x-scroll flex pb-5 space-x-5 lg:justify-center w-sm md:pr-12 lg:pr-0">
-					{
-						lastThreegames &&
-							lastThreegames.map((game) => (
-								<Review
-									gameName={game.gameName}
-									gameRating={game.gameRating}
-									gameReview={game.gameReview}
-									createdAt={game.createdAt}
-									gamePlatform={game.gamePlatform}
-									gameImage={game.gameImage}
-								/>
-							))
-					}
-				</div>
-			</section>
-			<section id="ultimas noticias">
-				<Title title="Ultimas noticias" />
-				<div class="flex flex-wrap gap-5 lg:justify-center">
-					{
-						lastSixNews &&
-							lastSixNews.map((news) => (
-								<New
-									newTitle={news.newTitle}
-									newDescription={news.newDescription}
-									newImage={news.newImage || ''}
-									author={news.author}
-									createdAt={news.createdAt}
-								/>
-							))
-					}
-				</div>
-			</section>
+	<main class="lg:flex lg:space-x-8 space-y-8">
+
+		<div>
+			<SectionLastThreeGames />
+			<SectionLastSixNews />
 		</div>
-		<div class="space-y-10 lg:block md:flex md:justify-center md:gap-20 md:space-y-0 lg:space-y-10">
-			<section class="">
-				<Title title="Top 5" />
-				<div class="space-y-4">
-					{
-						topGames &&
-							topGames.map((game) => (
-								<Card
-									gameName={game.gameName}
-									gameRating={game.gameRating}
-									gameImage={game.gameImage}
-								/>
-							))
-					}
-				</div>
-			</section>
-			<section>
-				<Title title="Ultimas guias" />
-				<div class="space-y-4">
-					{
-						lastFiveGuides &&
-							lastFiveGuides.map((guide) => (
-								<Card gameName={guide.gameName} gameImage={guide.gameImage} />
-							))
-					}
-				</div>
-			</section>
+
+		<div class="lg:block md:flex md:justify-around">
+			<SectionTop5 />
+			<SectionUltimasGuias />
 		</div>
-		</div>
+
 	</main>
 </Layout>
