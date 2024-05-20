@@ -1,0 +1,21 @@
+---
+import Card from "./Card.astro";
+import Title from "./Title.astro";
+import { topGames } from "../../data/data";
+---
+
+<section class="pb-8">
+  <Title title="Top 5" />
+  <div class="space-y-5">
+    {
+      topGames &&
+        topGames.map((game) => (
+          <Card
+            gameName={game.gameName}
+            gameRating={game.gameRating}
+            gameImage={game.gameImage}
+          />
+        ))
+    }
+  </div>
+</section>
