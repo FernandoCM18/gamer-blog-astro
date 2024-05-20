@@ -1,0 +1,22 @@
+---
+import Platforms from '../components/Platforms.astro';
+import {GUIDES} from '../../data/data';
+import Trofeo from '../../assets/icons/trofeo.astro';
+
+const {gameImage, gameName, achievements, gamePlatform} = GUIDES[2];
+
+---
+
+<article class="w-[200px] h-[290px] bg-white shadow-card rounded-xl p-3 flex flex-col justify-center space-y-3">
+  <div class="h-[170px]">
+    <img src={gameImage} alt={gameName} class="rounded-xl object-cover w-full h-full">
+  </div>
+  <h2 class="font-bold text-center">{gameName}</h2>
+  <div class="flex justify-between gap-3">
+    <div class="flex gap-1">
+      <Trofeo />
+      <p class="">3/{achievements}</p>
+    </div>
+    <Platforms platforms={gamePlatform} fill='fill-slate-900' iconToGuide />
+  </div>
+</article>
