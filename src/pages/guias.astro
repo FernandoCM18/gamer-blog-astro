@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import Segment from '../components/Segment.astro';
 import CardGuias from '../components/CardGuias.astro';
+import { GUIDES } from '../../data/data';
 ---
 <Layout title='Guias' description='Guias de videojuegos'>
     <Title title='Guias' className='text-center'/>
@@ -10,6 +11,16 @@ import CardGuias from '../components/CardGuias.astro';
       <Segment />
     </div>
     <div id="display"></div>
-    <CardGuias />
-  
+    <section class="flex flex-wrap gap-5">
+    {
+      GUIDES.map((guide, index) => (
+        <CardGuias
+          gameName={guide.gameName}
+          gameImage={guide.gameImage ? guide.gameImage : ''}
+          gamePlatform={guide.gamePlatform}
+          achievements={guide.achievements}
+        />
+      ))
+    }
+    </section>
 </Layout>
